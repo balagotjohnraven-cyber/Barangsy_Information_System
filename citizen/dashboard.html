@@ -48,7 +48,7 @@
             <section id="services" class="dashboard-section active">
                 <div class="welcome-card">
                     <h2>Welcome back!</h2>
-                    <p>Request services easily and track your appointments</p>
+                    <p>Request services easily and track LIVE updates</p>
                 </div>
 
                 <div class="services-grid">
@@ -60,7 +60,7 @@
                     </div>
                     <div class="service-card" data-service="certificate">
                         <i class="fas fa-file-certificate"></i>
-                        <h3>Certificate of Indigency</h3>
+                        <h3>Certificate Request</h3>
                         <p>Request certificate for various purposes</p>
                         <button class="btn-service">Request Certificate</button>
                     </div>
@@ -78,7 +78,7 @@
                                 <input type="hidden" id="requestType">
                                 <div class="form-group">
                                     <label><i class="fas fa-align-left"></i> Purpose</label>
-                                    <textarea id="requestPurpose" rows="4" required></textarea>
+                                    <textarea id="requestPurpose" rows="4" required placeholder="Describe your request..."></textarea>
                                 </div>
                                 <div class="form-group">
                                     <label><i class="fas fa-map-marker-alt"></i> Purok</label>
@@ -91,32 +91,8 @@
                                         <option value="Purok 5">Purok 5</option>
                                     </select>
                                 </div>
-                                <button type="submit" class="btn btn-primary full-width">Submit Request</button>
+                                <button type="submit" class="btn btn-primary full-width">Submit Request LIVE</button>
                             </form>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Rating Modal -->
-                <div id="ratingModal" class="modal">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h3>Rate Your Experience</h3>
-                            <span class="close" id="closeRatingModal">&times;</span>
-                        </div>
-                        <div class="modal-body">
-                            <div class="rating-container">
-                                <div class="stars" id="ratingStars">
-                                    <i class="far fa-star" data-rating="1"></i>
-                                    <i class="far fa-star" data-rating="2"></i>
-                                    <i class="far fa-star" data-rating="3"></i>
-                                    <i class="far fa-star" data-rating="4"></i>
-                                    <i class="far fa-star" data-rating="5"></i>
-                                </div>
-                                <p id="ratingText">Click a star to rate</p>
-                                <input type="hidden" id="currentRating">
-                            </div>
-                            <button id="submitRating" class="btn btn-primary full-width" disabled>Submit Rating</button>
                         </div>
                     </div>
                 </div>
@@ -124,9 +100,9 @@
 
             <!-- History Section -->
             <section id="history" class="dashboard-section">
-                <h2>Request History</h2>
+                <h2>📋 Request History (LIVE)</h2>
                 <div id="historyList" class="history-container">
-                    <!-- History will be loaded here -->
+                    <p style="text-align: center; color: #666; padding: 3rem;">Loading live requests...</p>
                 </div>
             </section>
 
@@ -137,31 +113,36 @@
                         <i class="fas fa-star"></i>
                         <div>
                             <h3 id="totalRatings">0</h3>
-                            <p>Total Ratings Given</p>
+                            <p>Total Ratings</p>
                         </div>
                     </div>
                     <div class="stat-card">
                         <i class="fas fa-calendar-check"></i>
                         <div>
                             <h3 id="appointmentCount">0</h3>
-                            <p>Appointment Requests</p>
+                            <p>Appointments</p>
                         </div>
                     </div>
                     <div class="stat-card">
                         <i class="fas fa-file-certificate"></i>
                         <div>
                             <h3 id="certificateCount">0</h3>
-                            <p>Certificate Requests</p>
+                            <p>Certificates</p>
                         </div>
                     </div>
                 </div>
                 <div id="ratingsList" class="ratings-container">
-                    <!-- Ratings will be loaded here -->
+                    <p style="text-align: center; color: #666; padding: 3rem;">No ratings yet</p>
                 </div>
             </section>
         </main>
     </div>
 
-    <script src="../js/citizen.js"></script>
+    <!-- 🔥 FIREBASE LIVE MODULE -->
+    <script type="module">
+        import '../js/firebase-config.js';
+        import '../js/auth.js';
+        import '../js/citizen.js';
+    </script>
 </body>
 </html>
