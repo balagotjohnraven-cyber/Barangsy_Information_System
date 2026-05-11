@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Citizen Dashboard - Barangay Information System</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="citizen-dashboard">
+        <aside class="sidebar">
+            <div class="logo">
+                <i class="fas fa-home"></i>
+                <h3>My Dashboard</h3>
+            </div>
+            <nav class="nav-menu">
+                <a href="#" class="nav-item active" data-section="services">
+                    <i class="fas fa-concierge-bell"></i>
+                    <span>Services</span>
+                </a>
+                <a href="#" class="nav-item" data-section="history">
+                    <i class="fas fa-history"></i>
+                    <span>History</span>
+                </a>
+                <a href="#" class="nav-item" data-section="ratings">
+                    <i class="fas fa-star"></i>
+                    <span>Ratings</span>
+                </a>
+                <a href="#" class="nav-item" id="logoutBtn">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </a>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header class="topbar">
+                <h1>Citizen Dashboard</h1>
+                <div class="user-info">
+                    <span id="citizenName">Citizen</span>
+                    <i class="fas fa-user"></i>
+                </div>
+            </header>
+
+            <!-- Services Section -->
+            <section id="services" class="dashboard-section active">
+                <div class="welcome-card">
+                    <h2>Welcome back!</h2>
+                    <p>Request services easily and track your appointments</p>
+                </div>
+
+                <div class="services-grid">
+                    <div class="service-card" data-service="appointment">
+                        <i class="fas fa-calendar-check"></i>
+                        <h3>Appointment Request</h3>
+                        <p>Schedule your barangay appointment</p>
+                        <button class="btn-service">Request Appointment</button>
+                    </div>
+                    <div class="service-card" data-service="certificate">
+                        <i class="fas fa-file-certificate"></i>
+                        <h3>Certificate of Indigency</h3>
+                        <p>Request certificate for various purposes</p>
+                        <button class="btn-service">Request Certificate</button>
+                    </div>
+                </div>
+
+                <!-- Request Form Modal -->
+                <div id="requestFormModal" class="modal">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h3 id="formTitle">New Request</h3>
+                            <span class="close" id="closeFormModal">&times;</span>
+                        </div>
+                        <div class="modal-body">
+                            <form id="requestForm">
+                                <input type="hidden" id="requestType">
+                                <div class="form-group">
+                                    <label><i class="fas fa-align-left"></i> Purpose</label>
+                                    <textarea id="requestPurpose" rows="4" required></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label><i class="fas fa-map-marker-alt"></i> Purok</label>
+                                    <select id="requestPurok" required>
+                                        <option value="">Select Purok</option>
+                                        <option value="Purok 1">Purok 1</option>
+                                        <option value="Purok 2">Purok 2</option>
+                                        <option value="Purok 3">Purok 3</option>
+                                        <option value="Purok 4">Purok 4</option>
+                                        <option value="Purok 5">Purok 5</option>
+                                    </select>
+                                </div>
+                                <button type="submit" class="btn btn-primary full-width">Submit Request</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Rating Modal -->
+                <div id="ratingModal" class="modal">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h3>Rate Your Experience</h3>
+                            <span class="close" id="closeRatingModal">&times;</span>
+                        </div>
+                        <div class="modal-body">
+                            <div class="rating-container">
+                                <div class="stars" id="ratingStars">
+                                    <i class="far fa-star" data-rating="1"></i>
+                                    <i class="far fa-star" data-rating="2"></i>
+                                    <i class="far fa-star" data-rating="3"></i>
+                                    <i class="far fa-star" data-rating="4"></i>
+                                    <i class="far fa-star" data-rating="5"></i>
+                                </div>
+                                <p id="ratingText">Click a star to rate</p>
+                                <input type="hidden" id="currentRating">
+                            </div>
+                            <button id="submitRating" class="btn btn-primary full-width" disabled>Submit Rating</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- History Section -->
+            <section id="history" class="dashboard-section">
+                <h2>Request History</h2>
+                <div id="historyList" class="history-container">
+                    <!-- History will be loaded here -->
+                </div>
+            </section>
+
+            <!-- Ratings Section -->
+            <section id="ratings" class="dashboard-section">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <i class="fas fa-star"></i>
+                        <div>
+                            <h3 id="totalRatings">0</h3>
+                            <p>Total Ratings Given</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-calendar-check"></i>
+                        <div>
+                            <h3 id="appointmentCount">0</h3>
+                            <p>Appointment Requests</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-file-certificate"></i>
+                        <div>
+                            <h3 id="certificateCount">0</h3>
+                            <p>Certificate Requests</p>
+                        </div>
+                    </div>
+                </div>
+                <div id="ratingsList" class="ratings-container">
+                    <!-- Ratings will be loaded here -->
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="../js/citizen.js"></script>
+</body>
+</html>

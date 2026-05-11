@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Barangay Information System</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="admin-dashboard">
+        <aside class="sidebar">
+            <div class="logo">
+                <i class="fas fa-user-shield"></i>
+                <h3>Admin Panel</h3>
+            </div>
+            <nav class="nav-menu">
+                <a href="#" class="nav-item active" data-section="requests">
+                    <i class="fas fa-list"></i>
+                    <span>Requests</span>
+                </a>
+                <a href="#" class="nav-item" data-section="analytics">
+                    <i class="fas fa-chart-bar"></i>
+                    <span>Analytics</span>
+                </a>
+                <a href="#" class="nav-item" id="logoutBtn">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </a>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header class="topbar">
+                <h1>Admin Dashboard</h1>
+                <div class="user-info">
+                    <span id="adminName">Admin</span>
+                    <i class="fas fa-user-shield"></i>
+                </div>
+            </header>
+
+            <!-- Requests Section -->
+            <section id="requests" class="dashboard-section active">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <i class="fas fa-calendar-check"></i>
+                        <div>
+                            <h3 id="totalAppointments">0</h3>
+                            <p>Appointment Requests</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-file-certificate"></i>
+                        <div>
+                            <h3 id="totalCertificates">0</h3>
+                            <p>Certificate Requests</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-star"></i>
+                        <div>
+                            <h3 id="avgRating">0</h3>
+                            <p>Average Rating</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="requests-list">
+                    <h2>Pending Requests</h2>
+                    <div id="requestsList" class="requests-container">
+                        <!-- Requests will be loaded here -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Analytics Section -->
+            <section id="analytics" class="dashboard-section">
+                <div class="chart-container">
+                    <canvas id="ratingChart"></canvas>
+                </div>
+                <div class="chart-container">
+                    <canvas id="requestsChart"></canvas>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Request Modal with Reply Section -->
+    <div id="requestModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle">Request Details</h3>
+                <span class="close" id="closeModal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div id="modalContent"></div>
+                <div id="replySection" style="display: none; margin-top: 2rem; padding-top: 2rem; border-top: 1px solid #e1e5e9;">
+                    <h4><i class="fas fa-reply"></i> Reply to Citizen</h4>
+                    <form id="replyForm">
+                        <input type="hidden" id="replyRequestId">
+                        <div class="form-group">
+                            <label><i class="fas fa-calendar"></i> Scheduled Date</label>
+                            <input type="date" id="scheduledDate" required>
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-clock"></i> Time</label>
+                            <input type="time" id="scheduledTime" required>
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-comment"></i> Reply Message</label>
+                            <textarea id="replyMessage" rows="4" placeholder="Enter your reply message..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Reply & Notify</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/admin.js"></script>
+</body>
+</html>
