@@ -6,26 +6,6 @@
     <title>Register - Barangay Information System</title>
     <link rel="stylesheet" href="css/style.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <style>
-        /* Quick Fix for Form Row Overlap */
-        .form-row {
-            display: flex;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-        }
-        
-        .form-row .form-group {
-            flex: 1;
-            min-width: 0; /* Prevents overflow */
-        }
-        
-        @media (max-width: 768px) {
-            .form-row {
-                flex-direction: column;
-                gap: 0;
-            }
-        }
-    </style>
 </head>
 <body>
     <div class="auth-container">
@@ -45,10 +25,6 @@
                         <label><i class="fas fa-user"></i> Last Name</label>
                         <input type="text" id="lastName" required>
                     </div>
-                </div>
-                <div class="form-group">
-                    <label><i class="fas fa-id-card"></i> Username</label>
-                    <input type="text" id="regUsername" required>
                 </div>
                 <div class="form-group">
                     <label><i class="fas fa-envelope"></i> Email</label>
@@ -80,6 +56,6 @@
         </div>
     </div>
 
-    <script src="js/auth.js"></script>
+    <script type="module" src="js/auth.js"></script>
 </body>
 </html>
