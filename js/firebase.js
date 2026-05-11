@@ -5,12 +5,13 @@ import { getFirestore, collection, addDoc, getDocs, query, where, orderBy, updat
 
 const firebaseConfig = {
     // ⚠️ PASTE YOUR FIREBASE CONFIG HERE ⚠️
-    apiKey: "YOUR_API_KEY",
-    authDomain: "YOUR_PROJECT.firebaseapp.com",
-    projectId: "YOUR_PROJECT_ID",
-    storageBucket: "YOUR_PROJECT.appspot.com",
-    messagingSenderId: "123456789",
-    appId: "YOUR_APP_ID"
+  apiKey: "AIzaSyD38GyriJFEyfcYdql2n3GHPpuBvP2RbDQ",
+  authDomain: "barangay-system-1d7aa.firebaseapp.com",
+  projectId: "barangay-system-1d7aa",
+  storageBucket: "barangay-system-1d7aa.firebasestorage.app",
+  messagingSenderId: "979413370986",
+  appId: "1:979413370986:web:9e61698869afb9f58b6213",
+  measurementId: "G-M1DYK3D7PG"
 };
 
 export const app = initializeApp(firebaseConfig);
