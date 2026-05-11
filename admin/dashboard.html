@@ -19,7 +19,7 @@
             <nav class="nav-menu">
                 <a href="#" class="nav-item active" data-section="requests">
                     <i class="fas fa-list"></i>
-                    <span>Requests</span>
+                    <span>Requests (LIVE)</span>
                 </a>
                 <a href="#" class="nav-item" data-section="analytics">
                     <i class="fas fa-chart-bar"></i>
@@ -68,9 +68,9 @@
                 </div>
 
                 <div class="requests-list">
-                    <h2>Pending Requests</h2>
+                    <h2>📱 Pending Requests (LIVE from all citizens)</h2>
                     <div id="requestsList" class="requests-container">
-                        <!-- Requests will be loaded here -->
+                        <p style="text-align: center; color: #666; padding: 3rem;">Loading live requests...</p>
                     </div>
                 </div>
             </section>
@@ -78,16 +78,18 @@
             <!-- Analytics Section -->
             <section id="analytics" class="dashboard-section">
                 <div class="chart-container">
+                    <h3>📊 Rating Trends</h3>
                     <canvas id="ratingChart"></canvas>
                 </div>
                 <div class="chart-container">
+                    <h3>📈 Request Types</h3>
                     <canvas id="requestsChart"></canvas>
                 </div>
             </section>
         </main>
     </div>
 
-    <!-- Request Modal with Reply Section -->
+    <!-- Reply Modal -->
     <div id="requestModal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
@@ -95,9 +97,11 @@
                 <span class="close" id="closeModal">&times;</span>
             </div>
             <div class="modal-body">
-                <div id="modalContent"></div>
+                <div id="modalContent">
+                    <p>Loading request details...</p>
+                </div>
                 <div id="replySection" style="display: none; margin-top: 2rem; padding-top: 2rem; border-top: 1px solid #e1e5e9;">
-                    <h4><i class="fas fa-reply"></i> Reply to Citizen</h4>
+                    <h4>📤 Reply to Citizen</h4>
                     <form id="replyForm">
                         <input type="hidden" id="replyRequestId">
                         <div class="form-group">
@@ -109,16 +113,21 @@
                             <input type="time" id="scheduledTime" required>
                         </div>
                         <div class="form-group">
-                            <label><i class="fas fa-comment"></i> Reply Message</label>
-                            <textarea id="replyMessage" rows="4" placeholder="Enter your reply message..." required></textarea>
+                            <label><i class="fas fa-comment"></i> Message</label>
+                            <textarea id="replyMessage" rows="4" required placeholder="Enter reply message..."></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary">Send Reply & Notify</button>
+                        <button type="submit" class="btn btn-primary full-width">Send Reply LIVE</button>
                     </form>
                 </div>
             </div>
         </div>
     </div>
 
-    <script src="../js/admin.js"></script>
+    <!-- 🔥 FIREBASE LIVE MODULE -->
+    <script type="module">
+        import '../js/firebase-config.js';
+        import '../js/auth.js';
+        import '../js/admin.js';
+    </script>
 </body>
 </html>
